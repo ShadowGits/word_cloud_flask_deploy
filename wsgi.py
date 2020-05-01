@@ -1,2 +1,2 @@
 from run import create_app
-app=create_app("config")
+app=create_app()
