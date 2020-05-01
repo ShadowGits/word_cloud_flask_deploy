@@ -1,6 +1,7 @@
 from flask import request
 from flask_restful import Resource
-from models import db, Image , ImageSchema
+from models import db
+from models import Image , ImageSchema
 
 
 from getWordcloud import text_to_wordcloud
