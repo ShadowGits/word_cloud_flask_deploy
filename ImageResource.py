@@ -30,16 +30,16 @@ class ImageResource(Resource):
         
         #text to wordlcloud
         encoded_image_received=text_to_wordcloud("Word Cloud is a data visualization technique used for representing text data in which the size of each word indicates its frequency or importance. Significant textual data points can be highlighted using a word cloud. Word clouds are widely used for analyzing data from social network websites.For generating word cloud in Python, modules needed are – matplotlib, pandas and wordcloud. To install these packages, run the following commands :")
-        # image = Image(
-        #     encoded_image=encoded_image_received
-        #     )
+        image = Image(
+            encoded_image=encoded_image_received
+            )
 
-        # db.session.add(image)
-        # db.session.commit()
+        db.session.add(image)
+        db.session.commit()
 
         result = image_schema.dump(image).data
 
-        return { "status": 'success', 'data': encoded_image_received }, 201
+        return { "status": 'success', 'data': result }, 201
 
     def put(self):
         json_data = request.get_json(force=True)
