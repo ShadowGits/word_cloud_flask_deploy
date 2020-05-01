@@ -20,7 +20,7 @@ logger = logging.getLogger('alembic.env')
 # target_metadata = mymodel.Base.metadata
 from flask import current_app
 config.set_main_option('sqlalchemy.url',
-                       os.environ['DATABASE_URL'] )
+                       "postgres://iekleocamkurlm:60a5d8526a0295291183ed3f30fe3a0c2b90918180616342fa0cd72481aa80fb@ec2-54-75-231-215.eu-west-1.compute.amazonaws.com:5432/d9p7fa1u4hpldr" )
 target_metadata = current_app.extensions['migrate'].db.metadata
 
 # other values from the config, defined by the needs of env.py,
