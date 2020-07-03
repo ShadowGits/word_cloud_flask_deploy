@@ -10,3 +10,4 @@ psycopg2-binary==2.8.0
 gunicorn==19.5.0
 wordcloud==1.6.0
 Pillow==7.1.2
+opencv-python==4.2.0.34 
