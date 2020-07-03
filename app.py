@@ -15,7 +15,9 @@ def  create_app():
 
         string_tuple=text_to_wordcloud("")
         return jsonify({"image_string":string_tuple[0],
-                    "image_string_invert":string_tuple[1]})
+                    "image_string_invert":string_tuple[1],
+                    "image_string_masked":string_tuple[2],
+                    "image_string_invert_masked":string_tuple[3]})
 
 
 
@@ -27,7 +29,9 @@ def  create_app():
         print(text)
         string_tuple=text_to_wordcloud(text)
         return jsonify({"image_string":string_tuple[0],
-                    "image_string_invert":string_tuple[1]})
+                    "image_string_invert":string_tuple[1],
+                    "image_string_masked":string_tuple[2],
+                    "image_string_invert_masked":string_tuple[3]})
     return app
 
 

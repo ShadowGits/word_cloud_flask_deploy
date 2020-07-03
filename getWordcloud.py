@@ -82,14 +82,22 @@ def text_to_wordcloud(text):
     
     with open("cloud_masked.jpg",'rb') as f:
         image64=base64.b64encode(f.read())
-    image_string=image64.decode('utf-8')
+    image_string_masked=image64.decode('utf-8')
     
     with open("cloud_invert_masked.jpg",'rb') as f:
+        image64=base64.b64encode(f.read())
+    image_string_invert_masked=image64.decode('utf-8')
+    
+    with open("cloud.png",'rb') as f:
+        image64=base64.b64encode(f.read())
+    image_string=image64.decode('utf-8')
+    
+    with open("cloud_invert.png",'rb') as f:
         image64=base64.b64encode(f.read())
     image_string_invert=image64.decode('utf-8')
     
 
-    return (image_string,image_string_invert)
+    return (image_string,image_string_invert,image_string_masked,image_string_invert_masked)
 
 
 print(text_to_wordcloud("")[0][:10])
