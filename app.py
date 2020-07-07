@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from getWordcloud import text_to_wordcloud
+from getWordcloud import text_to_wordcloud, text_to_wordcloud_with_custom_mask
 #Init app
 
 def  create_app():
@@ -28,6 +28,19 @@ def  create_app():
         text=request.json['input_text']
         print(text)
         string_tuple=text_to_wordcloud(text)
+        return jsonify({"image_string":string_tuple[0],
+                    "image_string_invert":string_tuple[1],
+                    "image_string_masked":string_tuple[2],
+                    "image_string_invert_masked":string_tuple[3]})
+    return app
+
+    #Customised IMAGE MASK
+    @app.route("/ImageWithMask",methods=["POST"])
+    def get_text_image_string_with_custom_mask():
+
+        text=request.json['input_text']
+        maskString=request.json['mask_string']
+        string_tuple=text_to_wordcloud_with_custom_mask(text,maskString)
         return jsonify({"image_string":string_tuple[0],
                     "image_string_invert":string_tuple[1],
                     "image_string_masked":string_tuple[2],
